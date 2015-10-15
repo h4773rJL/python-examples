@@ -12,6 +12,10 @@ from PIL import ImageDraw
 
 
 def puttextimg(name, namefile):
+        """usamos PIL para cargar la imagen del reconocimiento
+...seleccionamos la fuente ttf, el color y la posición dentro de la imagen
+...     y escribimos el nombre. by. h4773r
+... """
     im = Image.open("reconocimiento.jpg")
      #archivo jpg del reconocimiento sin nombre
     outfile = namefile
