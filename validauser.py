@@ -1,5 +1,6 @@
 #! /usr/bin/python3
 
+
 def ismayor(a):
     if (len(a) < 6):
         print ('El nombre de usuario debe contener al menos 6 caracteres', end='\n')
@@ -26,9 +27,6 @@ salida = False
 while salida is False:
     try:
         user = str(input('User: '))
-        #print ('-< ', ismenor(user))
-        #print ('-> ', ismayor(user))
-        #print ('-a1 ', alfanumeric(user))
         if (ismenor(user) and ismayor(user) and alfanumeric(user)):
             salida = True
             print (salida, end='\n')
