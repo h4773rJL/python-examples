@@ -1,10 +1,12 @@
 #! /usr/bin/python3
 import re
 
+err = "La contraseña no es segura"
+msg = "Escriba una contraseña al menos 8 caracteres alfanumericos"
+
 
 def ismayor(a):
     if (len(a) < 8):
-        print ('La contraseña debe contener al menos 8 caracteres', end='\n')
         return False
     return True
 
@@ -36,23 +38,27 @@ def unnum(a):
     return flag
 
 
-
-def ismenor(a):
-    if (len(a) > 12):
-        print ('El nombre de usuario no puede contener mas de 12 caracteres.', end='\n')
-        return False
-    return True
-
-
 def alfanumeric(a):
     if (a.isalnum()):
         return True
     else:
-        print ('No es Alfanumerica', end='\n')
         return False
 
-#print ('Escriba una contraseña al menos 8 caracteres alfanumericos', end='\n')
-paswd = str(input('User: '))
-print ('pass: ', minus(paswd))
-print ('pass: ', mayus(paswd))
-print ('pass: ', unnum(paswd))
+
+
+salida = False
+while salida is False:
+    try:
+        print (msg, end='\n')
+        paswd = str(input('passwd: '))
+        if (ismayor(paswd)):
+            if (alfanumeric(paswd)):
+                if (minus(paswd) and mayus(paswd) and unnum(paswd)):
+                    salida = True
+                    print (salida, end='\n')
+                else:
+                    print (err, end='\n')
+        else:
+            print (err, end='\n')
+    except (KeyboardInterrupt, EOFError):
+        print (msg, end='\n')
